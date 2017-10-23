@@ -1,0 +1,204 @@
+*, :before, :after, :hover {
+    box-sizing: border-box;
+}
+
+* {
+    outline: none;
+}
+
+html, body {
+    width: 100%;
+}
+
+body {
+    background: silver;
+    background-size: 10%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-attachment: fixed;
+    font-family: "Roboto", sans-serif;
+}
+
+header {
+    background-color: #319dd4;
+    height: 820px;
+}
+
+
+
+.input-group-addon {
+    padding: 0;
+}
+
+header .headerFind {
+    margin: auto 5px;
+    color: white;
+    font-size: 18px;
+    width: 150px;
+}
+
+div .knopka {
+    width: 150px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid white;
+    color: white;
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+.container .col-4 .form-inline .form-control {
+    width: 150px !important;
+}
+
+.col-4 .form-inline {
+    width: 465px;
+}
+
+header h4 {
+    color: white;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    font-family: 'Roboto', serif;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.forgotPassword {
+    margin-left: 20px;
+}
+
+#header-txt {
+    margin-top: 10px;
+    font-size: 14px;
+    font-family: Roboto, serif;
+}
+
+#header-remember {
+    color: white;
+    margin-left: -3px;
+}
+
+#header-remember span {
+    margin-left: 3px;
+    font-size: .75rem;
+}
+
+.header-image {
+    height: 550px;
+    width: 100%;
+    background: url("../images/portada/dating-hero.jpg") center no-repeat;
+    background-size: cover;
+    -ms-background-position-y: -50px;
+    background-position-y: -50px;
+}
+
+.header-image > p {
+    padding-top: 105px;
+    text-align: center;
+    color: white;
+    font-size: 46px;
+    font-weight: bold;
+}
+
+.select-control {
+    margin-top: 5px;
+    width: 150px !important;
+}
+
+
+.form-inline .col span {
+    margin-left: 3px;
+}
+
+.form-inline .btn {
+    margin-top: 20px;
+    background: #ff7c2e;
+    width: 150px;
+    color: #ffffff;
+
+}
+#header-slider{
+    margin-top: -25px;
+}
+
+#slider {
+    width: 1220px;
+    height: 123px;
+    /*border: 5px solid black;*/
+    margin: 50px auto;
+    overflow: hidden;
+}
+
+#polosa {
+    width: 4514px;
+    position: relative;
+    left: 0;
+    transition: all ease 1s;
+}
+
+#polosa img {
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+#polosa::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.hideHeader, .header-image p{
+    /*display: none;*/
+}
+
+
+.stage-2-form{
+    max-width: 800px;
+}
+
+#agree-color{
+    color: #4b83a3;
+}
+.sendForm{
+    width: 370px;
+    height: 35px;
+    background: #ff7c2e;
+    color: white;
+    font-size: 17px;
+    line-height: 15px;
+}
+.app-navbar{
+    background-color: #319dd4;
+}
+#landing-area{
+    height: 550px;
+}
+.white{
+    color: white;
+}
+
+.bg-photo{
+    width: 100%;
+    background: url(/static/images/portada/dating-hero.jpg) center no-repeat;
+    background-size: cover;
+    -ms-background-position-y: -50px;
+    background-position-y: -50px;
+}
+.btn{
+    border-radius: 3px;
+}
+.btn-primary{
+    background: #ff7c2e;
+    color: white;
+    border: 0;
+    width: 150px;
+    height: 38px;
+}
+.visible{
+    display: block;
+}
+.hidden{
+    display: none;
+}
