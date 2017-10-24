@@ -4,7 +4,7 @@ export default ({onSubmit}) =>
             <label>Nombre de Usuario</label>
             <input type="text" name="name" className="form-control"/>
             <label>Clave</label>
-            <input type="text" name='password' className="form-control"/>
+            <input type="password" name='password' className="form-control"/>
             <label>Nivel Educación</label>
             <select className="form-control" name='education' >
                 <option/>
@@ -24,7 +24,7 @@ export default ({onSubmit}) =>
 
             <div className="form-check">
                 <label className="form-check-label">
-                    <input className="form-check-input" name='terms' type="checkbox" value=""/>
+                    <input className="form-check-input" name='terms' type="checkbox"/>
                     Acepto <a href='#'>Condiciones de uso</a>
                 </label>
             </div>
@@ -74,7 +74,7 @@ export default ({onSubmit}) =>
                     </select>
                 </div>
                 <div className='col'>
-                    <select name='month' className=" form-control">
+                    <select name='month' className="form-control">
                         <option/>
                         <option>01</option>
                         <option>02</option>

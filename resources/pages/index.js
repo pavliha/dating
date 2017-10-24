@@ -15,28 +15,6 @@ export default class Index extends Component {
         formResult: {}
     }
 
-    handleFirstSlide(e) {
-        e.preventDefault()
-        this.setState({formResult: Form(e.target.form).toJson()})
-        this.setState({slide: true})
-    }
-
-    handleSecondSlide(e) {
-        e.preventDefault()
-
-        const formData = new FormData(e.target.form) //Переходник для отправки на сервер
-
-        for (let item in this.state.formResult) {
-            formData.append(item, this.state.formResult[item])
-        }
-
-        axios.post('/register', formData).then((response) => {
-            console.log(response.body)
-        })
-
-
-    }
-
     render() {
         return <div>
             <Head>
@@ -80,5 +58,23 @@ export default class Index extends Component {
 
             </header>
         </div>
+    }
+
+    handleFirstSlide(e) {
+        e.preventDefault()
+        this.setState({formResult: Form(e.target.form).toJson()})
+        this.setState({slide: true})
+    }
+
+    handleSecondSlide(e) {
+        e.preventDefault()
+
+        let secondForm = Form(e.target.form).toJson()
+
+        axios.post('/register', {...this.state.formResult,...secondForm}).then((response) => {
+            console.log(response.body)
+        })
+
+
     }
 }
