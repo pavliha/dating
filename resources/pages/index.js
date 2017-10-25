@@ -8,8 +8,6 @@ import Form from 'form-to-json'
 import axios from 'axios'
 
 export default class Index extends Component {
-
-
     state = {
         slide: false,
         formResult: {}
@@ -72,7 +70,7 @@ export default class Index extends Component {
         let secondForm = Form(e.target.form).toJson()
 
         axios.post('/register', {...this.state.formResult,...secondForm}).then((response) => {
-            console.log(response.body)
+            console.log(response.data)
         })
 
 

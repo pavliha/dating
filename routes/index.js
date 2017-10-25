@@ -31,7 +31,6 @@ router.put('/user/:id', validate(userValidation), async (request, response, next
 
 
 router.post('/register', validate(userValidation), (request, response) => {
-
     const user = new User(request.body);
 
     user.save((err, data) => console.log(err, data))
