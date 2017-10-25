@@ -16,7 +16,6 @@ app.prepare()
 
         server.use('/', routes);
 
-
         server.get('*', (req, res) => {
             return handle(req, res)
         })
