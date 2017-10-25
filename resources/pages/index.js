@@ -7,6 +7,7 @@ import AuthStage2Form from "../components/AuthStage2Form";
 import Form from 'form-to-json'
 import axios from 'axios'
 import LoginForm from "../components/LoginForm";
+import LoginData from "../components/LoginData";
 
 export default class Index extends Component {
     state = {
@@ -36,7 +37,7 @@ export default class Index extends Component {
             <header>
                 <NavBar>
                     {this.state.user ?
-                        this.state.user.name :
+                        <LoginData user={this.state.user} onLogout={this.handleLogout.bind(this)}/> :
                         <LoginForm onSubmit={this.handleLogin.bind(this)}/>}
                 </NavBar>
 
@@ -64,6 +65,17 @@ export default class Index extends Component {
         </div>
     }
 
+
+    componentDidMount() {
+        const user = localStorage.getItem('user')
+
+        try{
+            if (user) this.setState({user: JSON.parse(user)})
+        }catch (err){
+            this.handleLogout()
+        }
+    }
+
     handleFirstSlide(e) {
         e.preventDefault()
         this.setState({formResult: Form(e.target.form).toJson()})
@@ -81,12 +93,21 @@ export default class Index extends Component {
     }
 
     async handleLogin(e) {
+
         e.preventDefault()
+
         const loginForm = Form(e.target.form).toJson()
 
         const response = await axios.post('/login', loginForm)
 
+        localStorage.setItem('user', JSON.stringify(response.data))
+
         this.setState({user: response.data})
 
+    }
+
+    handleLogout() {
+        localStorage.clear()
+        this.setState({user: null})
     }
 }

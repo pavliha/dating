@@ -9,15 +9,9 @@ export default ({children}) =>
             </div>
             <div className="col-6 d-flex justify-content-end">
                 <div className='pt-2'>
-                    <small className='white'>If you already have a profile</small>
+
                     {children}
-                    <div>
-                        <input id="remember" type="checkbox"/>
-                        <small className='white'><label htmlFor="remember">&nbsp;remember data</label></small>
-                        <small className="forgotPassword ml-3 white">
-                            <a href='#' className='white'>Did you forget your password?</a>
-                        </small>
-                    </div>
+
                 </div>
             </div>
         </div>
