@@ -40,6 +40,6 @@ export default ({onSubmit}) =>
             </select>
         </div>
         <div>
-            <button className="btn btn-primary mt-4" onClick={onSubmit}>Following</button>
+            <button className="btn btn-primary btn-sendForm mt-4" onClick={onSubmit}>Following</button>
         </div>
     </form>

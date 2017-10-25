@@ -6,10 +6,12 @@ import Slider from "../components/Slider";
 import AuthStage2Form from "../components/AuthStage2Form";
 import Form from 'form-to-json'
 import axios from 'axios'
+import LoginForm from "../components/LoginForm";
 
 export default class Index extends Component {
     state = {
         slide: false,
+        user: null,
         formResult: {}
     }
 
@@ -32,7 +34,11 @@ export default class Index extends Component {
             </Head>
 
             <header>
-                <NavBar/>
+                <NavBar>
+                    {this.state.user ?
+                        this.state.user.name :
+                        <LoginForm onSubmit={this.handleLogin.bind(this)}/>}
+                </NavBar>
 
                 <section id='landing-area' className='bg-photo d-flex flex-column justify-content-around py-5'>
                     <div className={this.state.slide ? 'hidden' : 'visible'}>
@@ -69,10 +75,18 @@ export default class Index extends Component {
 
         let secondForm = Form(e.target.form).toJson()
 
-        axios.post('/register', {...this.state.formResult,...secondForm}).then((response) => {
-            console.log(response.data)
+        axios.post('/register', {...this.state.formResult, ...secondForm}).then((response) => {
+            document.querySelector('#home').innerHTML = response.data.name
         })
+    }
 
+    async handleLogin(e) {
+        e.preventDefault()
+        const loginForm = Form(e.target.form).toJson()
+
+        const response = await axios.post('/login', loginForm)
+
+        this.setState({user: response.data})
 
     }
 }

@@ -137,7 +137,7 @@ export default ({onSubmit}) =>
                 <option>Center</option>
                 <option>South</option>
             </select>
-            <button className="btn btn-primary btn-block" onClick={onSubmit}>Finalizar</button>
+            <button className="btn btn-primary btn-block mt-3" onClick={onSubmit}>Finalizar</button>
         </div>
 
 

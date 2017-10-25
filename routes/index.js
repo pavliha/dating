@@ -4,23 +4,27 @@ const validate = require('express-validation')
 const userValidation = require('../app/Validation/User')
 const User = require('../app/Models/User')
 
-router.get('/users', (request, response, next) => {
-    // response.send('Birds home page')
-    User.find({}, function (err, users) {
-        if (err)
-            next(err);
-        response.json(users);
-    });
+
+router.post('/login', async (request, response) => {
+    const userData = request.body
+
+    const user = await User.findOne({name: userData.name, password: userData.password})
+
+    return response.json(user)
 })
 
-router.get('/user/:id', (request, response, next) => {
-    User.findById(request.param('id'), (err, user) => {
-        if (err)
-            next(err);
-        if (user === null)
-            console.log('Not found')
-        response.json(user);
-    });
+router.get('/users', async (request, response, next) => {
+    return response.json(await User.find({}));
+})
+
+router.get('/user/:id', async (request, response, next) => {
+    try {
+        const user = await User.findById(request.param('id'))
+        return response.json(user);
+    } catch (err) {
+        console.log(err)
+    }
+
 })
 router.put('/user/:id', validate(userValidation), async (request, response, next) => {
     const user = await User.findById(request.param('id'))
