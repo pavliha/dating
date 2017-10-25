@@ -21,26 +21,7 @@ router.post('/register', validate(userValidation), (request, response) => {
     return response.json(request.body);
 })
 
-
-router.get('/users', async (request, response, next) => {
-    return response.json(await User.find({}));
-})
-
-router.get('/user/:id', async (request, response, next) => {
-    try {
-        const user = await User.findById(request.param('id'))
-        return response.json(user);
-    } catch (err) {
-        console.log(err)
-    }
-
-})
-router.put('/user/:id', validate(userValidation), async (request, response, next) => {
-    const user = await User.findById(request.param('id'))
-    user.name = request.body.name;
-    user.save()
-    return response.json(user)
-})
+router.get('/token')
 
 
 
