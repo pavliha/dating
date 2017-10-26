@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const port = parseInt(process.env.PORT, 10) || 3000
 const routes = require('./routes')
 const auth = require('./routes/auth')
+const admins = require('./routes/admin')
 const next = require('./bootstrap/next')
 
 next.then((handle) => {
@@ -11,8 +12,9 @@ next.then((handle) => {
         server.use(bodyParser.urlencoded({extended: false}))
         server.use(express.json())
 
-        server.use('/', routes);
-        server.use('/', auth);
+        server.use('/', routes)
+        server.use('/', auth)
+        server.use('/', admins)
 
         server.get('*', (req, res) => {
             return handle(req, res)
