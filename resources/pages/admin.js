@@ -2,10 +2,12 @@ import React, {Component} from 'react'
 import Head from 'next/head'
 import axios from 'axios'
 
+
 export default class Admin extends Component {
     state = {
         user: null,
-        users: null
+        users: null,
+        id: null
     }
 
     render() {
@@ -26,7 +28,8 @@ export default class Admin extends Component {
             <main>
                 <div className="adminHeader d-flex justify-content-end">
                     <button className="btn btn-login mr-5">+ Create</button>
-                    <div className="white mr-4">admin</div>
+                    <div className="white mr-4">{this.state.user ? this.state.user.name :
+                        <div>Not found user</div>}</div>
                 </div>
 
                 <table className="table table-bordered ml-2 AdminTable">
@@ -51,7 +54,8 @@ export default class Admin extends Component {
                                         <option value="Admin">Admin</option>
                                     </select></td>
                                     <td><a href="#"><h5>Save changes</h5></a></td>
-                                    <td><a href="#"><h5>Delete user</h5></a></td>
+                                    <td><a href="#" onClick={this.handleDeleteUser.bind(this)}><h5>Delete user</h5></a>
+                                    </td>
                                 </tr>
                             })
                             : <div className="text-center m-5"><h1>Not found</h1></div>
@@ -66,16 +70,33 @@ export default class Admin extends Component {
     }
 
     componentDidMount() {
-        axios.get('/admins').then((response) => {
-            const users = response.data
-
-            this.setState({users})
-        })
         const user = localStorage.getItem('user')
 
         if (user) {
             this.setState({user: JSON.parse(user)})
-            console.log(user)
+            // console.log(user)
         }
+
+        axios.get('/users').then((response) => {
+            const users = response.data
+
+            this.setState({users})
+        })
+    }
+
+    handleDeleteUser(e) {
+        e.preventDefault()
+
+        //
+        // axios.get('/users').then((response) => {
+        //     const users = response.data
+        //     let name = users.name
+        //     this.setState({id: name})
+        //     // axios.delete('/user/:id', (request, response) => {
+        //     // const id = request.data.id;
+        //     // db.collection("users").deleteOne({_id: id})
+        //
+        //     // console.log(id)
+        // })
     }
 }
