@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 import Head from 'next/head'
 import axios from 'axios'
 
-
 export default class Admin extends Component {
     state = {
         user: null,
@@ -11,6 +10,9 @@ export default class Admin extends Component {
     }
 
     render() {
+
+        const {user, users, id} = this.state
+
         return <div>
             <Head>
                 <meta name="viewport"
@@ -31,9 +33,7 @@ export default class Admin extends Component {
                     <div className="white mr-4">{this.state.user ? this.state.user.name :
                         <div>Not found user</div>}</div>
                 </div>
-
-                <table className="table table-bordered ml-2 AdminTable">
-
+                {users ? <table className="table table-bordered ml-2 AdminTable">
                     <thead>
                     <tr>
                         <th scope="col">User</th>
@@ -43,29 +43,22 @@ export default class Admin extends Component {
                     </tr>
                     </thead>
                     <tbody>
-                    {
-                        this.state.users ?
-                            this.state.users.map(user => {
-                                return <tr>
-                                    <th scope="row"><h5>{user.name}</h5></th>
-                                    <td><select className="form-control" name="list">
-                                        <option value="User">User</option>
-                                        <option value="Moderator">Moderator</option>
-                                        <option value="Admin">Admin</option>
-                                    </select></td>
-                                    <td><a href="#"><h5>Save changes</h5></a></td>
-                                    <td><a href="#" onClick={this.handleDeleteUser.bind(this)}><h5>Delete user</h5></a>
-                                    </td>
-                                </tr>
-                            })
-                            : <div className="text-center m-5"><h1>Not found</h1></div>
-                    }
-
+                    {users.map((user, index) => {
+                        return <tr key={index}>
+                            <th scope="row"><h5>{user.name}</h5></th>
+                            <td><select className="form-control" name="list">
+                                <option value="User">User</option>
+                                <option value="Moderator">Moderator</option>
+                                <option value="Admin">Admin</option>
+                            </select></td>
+                            <td><a href="#"><h5>Save changes</h5></a></td>
+                            <td><a href="#" onClick={this.handleDeleteUser.bind(this, user)}><h5>Delete user</h5></a>
+                            </td>
+                        </tr>
+                    })}
                     </tbody>
-                </table>
-
+                </table> : <div className="text-center m-5"><h1>Not found</h1></div>}
             </main>
-
         </div>
     }
 
@@ -77,26 +70,23 @@ export default class Admin extends Component {
             // console.log(user)
         }
 
+        this.getUsers(this)
+
+
+    }
+
+    getUsers(self) {
         axios.get('/users').then((response) => {
             const users = response.data
-
-            this.setState({users})
+            self.setState({users})
         })
     }
 
-    handleDeleteUser(e) {
-        e.preventDefault()
+    async handleDeleteUser(user) {
+        await axios.delete('/user/' + user._id)
 
-        //
-        // axios.get('/users').then((response) => {
-        //     const users = response.data
-        //     let name = users.name
-        //     this.setState({id: name})
-        //     // axios.delete('/user/:id', (request, response) => {
-        //     // const id = request.data.id;
-        //     // db.collection("users").deleteOne({_id: id})
-        //
-        //     // console.log(id)
-        // })
+        this.getUsers(this)
+
+
     }
 }
