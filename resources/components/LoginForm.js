@@ -1,7 +1,7 @@
 export default ({onSubmit}) => <div>
     <small className='white'>If you already have a profile</small>
     <form className="d-flex">
-        <input type="text" className="form-control login-control mr-1" name='name' placeholder="Usuario"/>
+        <input type="email" className="form-control login-control mr-1" name='email' placeholder="Usuario"/>
         <input type="password" className="form-control login-control mr-1" name='password' placeholder="Clave"/>
         <button className="btn btn-outline btn-login" onClick={onSubmit}>deposit</button>
     </form>
