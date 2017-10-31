@@ -42,6 +42,10 @@ header {
     font-weight: bold;
 }
 
+.authForm1 div{
+    width: 150px;
+}
+
 #header-slider{
     margin-top: -25px;
 }
@@ -133,4 +137,8 @@ header {
 
 .AdminTable{
     width: 1200px;
+}
+
+@media screen and (min-width: 1200px){
+    
 }

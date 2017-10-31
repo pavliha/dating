@@ -54,7 +54,7 @@ export default class Index extends Component {
                     </div>
                     <div className={this.state.slide ? 'visible' : 'hidden'}>
                         <div className='mx-auto stage-2-form'>
-                            <AuthStage2Form onSubmit={this.handleSecondSlide.bind(this)}/>
+                            <AuthStage2Form values={{}} onSubmit={this.handleSecondSlide.bind(this)}/>
                         </div>
                     </div>
                 </section>

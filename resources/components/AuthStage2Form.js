@@ -1,19 +1,19 @@
-export default ({onSubmit}) =>
+export default ({onSubmit, values}) =>
     <form method="post" action="/" className='white row'>
         <div className='col-6'>
             <label>Nombre de Usuario</label>
-            <input type="text" name="name" className="form-control"/>
+            <input type="text" name="name" defaultValue={values.name} className="form-control"/>
             <label>Clave</label>
-            <input type="password" name='password' className="form-control"/>
+            <input type="password" name='password' defaultValue={values.password} className="form-control"/>
             <label>Nivel Educación</label>
-            <select className="form-control" name='education' >
+            <select className="form-control" name='education' defaultValue={values.education}>
                 <option/>
                 <option> Higher education</option>
                 <option>Secondary technical</option>
                 <option>Average</option>
             </select>
             <label>Región</label>
-            <select className="form-control" name='region' >
+            <select className="form-control" name='region' defaultValue={values.region}>
                 <option/>
                 <option>I Region</option>
                 <option>II Region</option>
@@ -24,21 +24,21 @@ export default ({onSubmit}) =>
 
             <div className="form-check">
                 <label className="form-check-label">
-                    <input className="form-check-input" name='terms' type="checkbox"/>
+                    <input className="form-check-input" name='terms' defaultValue={values.terms} type="checkbox"/>
                     Acepto <a href='#'>Condiciones de uso</a>
                 </label>
             </div>
         </div>
         <div className="col-6">
             <label>Email</label>
-            <input type="text" name='email' className="form-control"/>
+            <input type="text" name='email' defaultValue={values.email} className="form-control"/>
 
 
             <label>Nacimiento</label>
 
             <div className='row'>
                 <div className='col'>
-                    <select name='day' className="form-control">
+                    <select name='day' defaultValue={values.day} className="form-control">
                         <option/>
                         <option>01</option>
                         <option>02</option>
@@ -74,7 +74,7 @@ export default ({onSubmit}) =>
                     </select>
                 </div>
                 <div className='col'>
-                    <select name='month' className="form-control">
+                    <select name='month' className="form-control" defaultValue={values.month}>
                         <option/>
                         <option>01</option>
                         <option>02</option>
@@ -91,7 +91,7 @@ export default ({onSubmit}) =>
                     </select>
                 </div>
                 <div className='col'>
-                    <select name='year' className="form-control">
+                    <select name='year' className="form-control" defaultValue={values.year}>
                         <option/>
                         <option value={1980}>1980</option>
                         <option value={1981}>1981</option>
@@ -125,13 +125,13 @@ export default ({onSubmit}) =>
 
 
             <label>Hijos</label>
-            <select className="form-control" name='children'>
+            <select className="form-control" name='children' defaultValue={values.children}>
                 <option/>
                 <option value={true}>Yes</option>
                 <option value={false}>No</option>
             </select>
             <label>Comuna</label>
-            <select className=" form-control" name='place'>
+            <select className=" form-control" name='place' defaultValue={values.place}>
                 <option/>
                 <option>North</option>
                 <option>Center</option>

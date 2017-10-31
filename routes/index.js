@@ -6,21 +6,20 @@ const User = require('../app/Models/User')
 
 
 router.get('/users', async (request, response, next) => {
-    return response.json(await User.find({}));
+    return response.json(await User.find({}))
 })
-
 
 
 router.get('/user/:id', async (request, response, next) => {
     try {
         const user = await User.findById(request.param('id'))
-        return response.json(user);
+        return response.json(user)
     } catch (err) {
         console.log(err)
     }
-
 })
-router.put('/user/:id', validate(userValidation), async (request, response, next) => {
+
+router.put('/user/:id', async (request, response, next) => {
     const user = await User.findById(request.param('id'))
     user.name = request.body.name;
     user.save()
@@ -36,7 +35,6 @@ router.delete('/user/:id', async (request, response, next) => {
     }
 
 })
-
 
 
 module.exports = router

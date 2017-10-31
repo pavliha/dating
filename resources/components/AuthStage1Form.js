@@ -1,8 +1,8 @@
 export default ({onSubmit}) =>
-    <form className="d-flex align-items-center justify-content-around white">
+    <form className="d-flex align-items-center justify-content-around white authForm1">
         <div>
             <span>I am</span>
-            <select className="form-control select-control" name='my_gender'>
+            <select className="form-control" name='my_gender'>
                 <option/>
                 <option>Men</option>
                 <option>Woman</option>
@@ -10,7 +10,7 @@ export default ({onSubmit}) =>
         </div>
         <div>
             <span>I am looking for</span>
-            <select className="form-control select-control" name='looking_for_gender'>
+            <select className="form-control" name='looking_for_gender'>
                 <option/>
                 <option>Men</option>
                 <option>Woman</option>
@@ -18,7 +18,7 @@ export default ({onSubmit}) =>
         </div>
         <div>
             <span>between</span>
-            <select className="form-control select-control" name='age'>
+            <select className="form-control" name='age'>
                 <option/>
                 <option>18-24</option>
                 <option>25-31</option>
@@ -30,7 +30,7 @@ export default ({onSubmit}) =>
         </div>
         <div>
             <span>living in</span>
-            <select className="form-control select-control" name='region'>
+            <select className="form-control" name='region'>
                 <option/>
                 <option>I Region</option>
                 <option>II Region</option>
