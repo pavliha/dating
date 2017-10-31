@@ -86,7 +86,7 @@ header {
     color: #4b83a3;
 }
 .btn-sendForm{
-    width: 150px;
+    width: 100%;
     height: 38px;
 }
 
@@ -139,6 +139,8 @@ header {
     width: 1200px;
 }
 
-@media screen and (min-width: 1200px){
-    
+@media screen and (max-width: 1200px){
+    body {
+        font-size: 1.1rem;
+    }
 }

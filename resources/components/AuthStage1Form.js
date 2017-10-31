@@ -1,6 +1,6 @@
 export default ({onSubmit}) =>
-    <form className="d-flex align-items-center justify-content-around white authForm1">
-        <div>
+    <form className="row align-items-center justify-content-center white authForm1">
+        <div className="col-12 col-sm-6 col-md-6 col-lg-2">
             <span>I am</span>
             <select className="form-control" name='my_gender'>
                 <option/>
@@ -8,7 +8,7 @@ export default ({onSubmit}) =>
                 <option>Woman</option>
             </select>
         </div>
-        <div>
+        <div className="col-12 col-sm-6 col-md-6 col-lg-2">
             <span>I am looking for</span>
             <select className="form-control" name='looking_for_gender'>
                 <option/>
@@ -16,7 +16,7 @@ export default ({onSubmit}) =>
                 <option>Woman</option>
             </select>
         </div>
-        <div>
+        <div className="col-12 col-sm-4 col-md-4 col-lg-2">
             <span>between</span>
             <select className="form-control" name='age'>
                 <option/>
@@ -28,7 +28,7 @@ export default ({onSubmit}) =>
                 <option>53 and over</option>
             </select>
         </div>
-        <div>
+        <div className="col-12 col-sm-4 col-md-4 col-lg-2">
             <span>living in</span>
             <select className="form-control" name='region'>
                 <option/>
@@ -39,7 +39,7 @@ export default ({onSubmit}) =>
                 <option>V Region</option>
             </select>
         </div>
-        <div>
+        <div className="col-12 col-sm-4 col-md-4 col-lg-2">
             <button className="btn btn-primary btn-sendForm mt-4" onClick={onSubmit}>Following</button>
         </div>
     </form>
