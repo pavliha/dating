@@ -15,7 +15,7 @@ export default class Slider extends Component {
     }
 
     goLeft() {
-        this.setState({left: this.state.left - 366})
+        this.setState({left: this.state.left - 244})
 
         this.refs.polosa.style.left = this.state.left + 'px'
         if (this.state.left < -2928) this.setState({left: 0})

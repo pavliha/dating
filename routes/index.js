@@ -6,6 +6,7 @@ const User = require('../app/Models/User')
 
 
 router.get('/users', async (request, response, next) => {
+    request.header
     return response.json(await User.find({}))
 })
 
@@ -22,6 +23,8 @@ router.get('/user/:id', async (request, response, next) => {
 router.put('/user/:id', async (request, response, next) => {
     const user = await User.findById(request.param('id'))
     user.name = request.body.name;
+    user.role = request.body.role
+    debugger
     user.save()
     return response.json(user)
 })

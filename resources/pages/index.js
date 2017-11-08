@@ -41,7 +41,7 @@ export default class Index extends Component {
                         <LoginForm onSubmit={this.handleLogin.bind(this)}/>}
                 </NavBar>
 
-                <section id='landing-area' className='bg-photo d-flex flex-column justify-content-around py-5'>
+                <section id='landing-area' className='bg-photo d-flex flex-column justify-content-center py-5'>
                     <div className={this.state.slide ? 'hidden' : 'visible'}>
                         <h2 className='text-center display-4 white'>Create your free profile</h2>
                         <div className='container mb-5'>

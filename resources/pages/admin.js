@@ -79,7 +79,7 @@ export default class Admin extends Component {
                     <div className="mx-auto stage-2-form">
                         <div className='d-flex flex-column justify-content-around py-5'>
                             <AuthStage2Form style={{background: 'silver'}} values={this.state.edit}
-                                            onSubmit={this.handleSaveUser.bind(this, this.state.edit)}/>
+                                            onSubmit={this.handleSaveUser.bind(this)}/>
 
 
                         </div>
@@ -124,14 +124,14 @@ export default class Admin extends Component {
         })
     }
 
-    async handleSaveUser(user) {
+    async handleSaveUser(e) {
+        e.preventDefault()
+        await axios.put('/user/' + this.state.edit._id, Form(e.target.form).toJson())
         this.setState({
             edit: false,
             color: null
         })
-        // console.log(user)
-
-        await axios.put('/user/' + user._id)
         this.getUsers(this)
+
     }
 }

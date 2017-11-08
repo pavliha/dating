@@ -139,8 +139,23 @@ header {
     width: 1200px;
 }
 
-@media screen and (max-width: 1200px){
+@media screen and (max-width: 1250px){
     body {
         font-size: 1.1rem;
     }
+    #slider {
+        width: 700px;
+    }
 }
+
+@media screen and (max-width: 720px){
+    #slider {
+        width: 350px;
+    }
+}
+@media screen and (max-width: 420px){
+    #slider {
+        width: 250px;
+    }
+}
+
